@@ -13,11 +13,8 @@ import java.io.IOException;
 
 public class WordCountController {
     @PostMapping(value="/word")
-    public String requestLoan(@RequestBody WordRequest wordRequest) throws IOException, InterruptedException {
-        String outPut =  WordCounter.addOneOrMoreWords(wordRequest.getsubmitedWord());
-        return outPut;
-
-
+    public String requestLoan(@RequestBody WordRequest wordRequest){
+        return WordCounter.getInstance().addOneOrMoreWords(wordRequest.getsubmitedWord());
     }
 }
 

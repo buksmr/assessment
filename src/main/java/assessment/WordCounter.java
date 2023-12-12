@@ -10,8 +10,20 @@ import org.apache.commons.lang3.StringUtils;
 
 public class WordCounter {
 
-    static ArrayList<String> wordsArray = new ArrayList<String>();
-    public static String addOneOrMoreWords(String addWord ) throws IOException, InterruptedException {
+    private static final ArrayList<String> wordsArray = new ArrayList<String>();
+    private static WordCounter single_instance = null;
+    public String s;
+    private WordCounter()
+    {
+    }
+    public static synchronized WordCounter getInstance()
+    {
+        if (single_instance == null) {
+            single_instance = new WordCounter();
+        }
+        return single_instance;
+    }
+    public String addOneOrMoreWords(String addWord )  {
         String splitword[] =  addWord.split(" ");
         int count = splitword.length;
         for (int i = 0; i <count ; i++) {
@@ -23,7 +35,7 @@ public class WordCounter {
         System.out.println(counts);
         return counts.toString();
     }
-    private static void methodCount(String word) throws IOException, InterruptedException {
+    private static void methodCount(String word)  {
         String translatedWord = Translator.detectWordLanguage(word);
         wordsArray.add(translatedWord);
 

@@ -9,7 +9,7 @@ class WordCounterTest {
 
     @Test
     void test() throws IOException, InterruptedException {
-        assertEquals(WordCounter.addOneOrMoreWords("Me me me me"));
+        assertEquals(WordCounter.getInstance().addOneOrMoreWords("Me me me me"));
     }
 
     private void assertEquals(String me) {

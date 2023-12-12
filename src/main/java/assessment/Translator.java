@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class Translator {
 
 
-    public static String detectWordLanguage(String word) throws IOException, InterruptedException {
+    public static String detectWordLanguage(String word)  {
 
       String  translatedText = word;
         return translatedText;
